@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products Catalog</h1>
+
+<head>
+<style>
+table, th, td {
+    border: none;
+    border-collapse: collapse;
+}
+
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <div align="center"></div>
+  <th  style="width:25%">
+          <%= form_tag(products_path, :method=> "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search items", :style => "width: 205px" %>
+          </br>
+					 <%= image_submit_tag("button_search.png", :style => "height: 40px", :style =>"width: 105px")%>
+          <% end %>
+  </th>
+  </div>
+</table>
+<br>
+<table style="width:100%">
+
+  <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Price product</th>
+     
+      
+      <th colspan="3"></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_type %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price_product %></td>
+        <td><%= link_to image_tag("button_show.png", :style => "height: 40px", :style =>"width: 80px"), product %></td>
+        <td><%= link_to image_tag("button_edit.png", :style => "height: 40px", :style =>"width: 80px"), edit_product_path(product) %></td>
+        <td><%= link_to image_tag("button_destroy.png", :style => "height: 40px", :style =>"width: 80px"), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</table>
+<br>
+<br>
+<table style="width:100%">
+<%= link_to  image_tag("button_create-product.png", :style => "height: 40px", :style =>"width: 190px"), new_product_path %>
+</table>

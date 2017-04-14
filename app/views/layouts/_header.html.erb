@@ -1,0 +1,23 @@
+
+
+     
+      <nav class="col-md-8 col-md-offset-5">
+     
+         <ul class="nav navbar-nav navbar-centre" >
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Catalogue", cat_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Rent a Bike", orders_path %></li>
+            <li><%= link_to "User Account", accInfo_path %></li>
+            <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+            <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "About", about_path %></li>
+           <li><%= link_to "What's on in Dublin?",'http://www.visitdublin.com/whats-on' %></li>
+            <li><%= link_to "Contact", contact_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+     <center>
+      <div class="page-header">
+</center>

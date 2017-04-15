@@ -1,3 +1,3 @@
 # dublinbikerental
 
-Master Branch
+Branch Devise
